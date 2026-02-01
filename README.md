@@ -101,7 +101,6 @@ Click **"Try Demo Mode"** on the landing page to see the full flow without conne
 |------------|---------|
 | **ShadowWire** | Private transfers using Bulletproof range proofs |
 | **Range API** | Wallet compliance screening (sanctions, risk scoring) |
-| **Noir** | ZK circuits for age/risk attestations |
 | **Next.js 16** | React framework with Turbopack |
 | **Solana Wallet Adapter** | Wallet connection |
 
@@ -139,7 +138,6 @@ src/
 |---------|---------------|
 | **Hidden Amounts** | ShadowWire Bulletproof range proofs |
 | **Compliance Screening** | Range API for sender + all recipients |
-| **ZK Attestations** | Noir circuits prove compliance without revealing data |
 | **Amount Splitting** | Optional withdrawal splitting to defeat correlation |
 | **Fresh Addresses** | Deterministic address derivation for each split |
 
@@ -151,7 +149,7 @@ src/
 - Multi-token support (USDC payroll)
 - Recurring scheduled payments
 - Employee self-service portal
-- Compliance attestation export for auditors
+- **Noir ZK attestations** - Enable employees to prove income to third parties (lenders, landlords) without revealing salary details
 
 **Long-term:**
 - Fiat on/off ramp integration
