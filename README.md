@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ShadowPay 🔒
 
-## Getting Started
+**Compliant Private Payroll for Solana**
 
-First, run the development server:
+Hide salaries on-chain while proving regulatory compliance via ZK proofs.
+
+Built for the [Solana Privacy Hackathon 2026](https://solana.com/privacyhack).
+
+---
+
+## 🎯 The Problem
+
+Every month, millions of salary payments expose sensitive financial data on-chain:
+- Employees can see each other's salaries
+- Competitors can track your burn rate
+- Salary data is permanently public
+
+**This isn't just inconvenient — it's a privacy violation.**
+
+## 💡 The Solution
+
+ShadowPay enables private payroll that's also **compliant**:
+
+1. **Hidden Amounts** — Salary amounts are hidden using Bulletproof range proofs via ShadowWire
+2. **Proven Compliance** — Every wallet is screened via Range API before payment
+3. **ZK Attestations** — Generate proofs that compliance requirements are met without revealing sensitive data
+
+**Competitors hide balances. We hide balances AND prove you're not paying sanctioned entities.**
+
+---
+
+## 🏆 Bounty Alignment
+
+| Sponsor | Bounty | Our Integration |
+|---------|--------|-----------------|
+| **Radr (ShadowWire)** | $15,000 | Private transfers via Bulletproof ZK proofs |
+| **Range** | $1,500 | Pre-screening wallet compliance for sender & recipients |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Demo Mode
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Click **"Try Demo Mode"** on the landing page to see the full flow without connecting a wallet. Demo mode simulates:
+- Wallet balances (public + shielded)
+- Compliance checks via Range API
+- Private transfers via ShadowWire
+- Bulletproof range proof generation
+- **Employee withdrawals** (simple + stealth mode with mixing)
 
-## Learn More
+**🎬 [Live Demo](https://shadowpay-demo.vercel.app)** ← Try it now!
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗️ How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### For Employers
 
-## Deploy on Vercel
+1. **Connect Wallet** → Instant compliance verification via Range
+2. **Shield Funds** → Deposit SOL into ShadowWire's private pool
+3. **Upload Employees** → CSV with wallet addresses, each screened for compliance
+4. **Run Payroll** → Private transfers to all employees, amounts hidden
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### For Employees
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Connect Wallet** → See your shielded balance (only visible to you)
+2. **Simple Withdraw** → Unshield funds to your public wallet instantly
+3. **Stealth Withdraw** → Split funds through mixing addresses for enhanced privacy
+4. **Privacy Score** → See real-time privacy metrics for your withdrawal strategy
+
+---
+
+## 🔧 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **ShadowWire** | Private transfers using Bulletproof range proofs |
+| **Range API** | Wallet compliance screening (sanctions, risk scoring) |
+| **Noir** | ZK circuits for age/risk attestations |
+| **Next.js 16** | React framework with Turbopack |
+| **Solana Wallet Adapter** | Wallet connection |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx                    # Main UI (Employer/Employee dashboards)
+│   ├── components/
+│   │   ├── AppWalletProvider.tsx   # Solana wallet context
+│   │   ├── ComplianceBadge.tsx     # Range compliance indicator
+│   │   ├── TerminalLog.tsx         # Activity log display
+│   │   └── ...
+│   └── api/
+│       ├── compliance/check/       # Range compliance endpoint
+│       ├── attestation/generate/   # ZK attestation generation
+│       ├── transfer/private/       # ShadowWire transfer
+│       └── proof/verify/           # Proof verification
+└── lib/
+    ├── compliance-service.ts       # Orchestrates Range + ShadowWire + Noir
+    ├── shadowwire-service.ts       # ShadowWire SDK wrapper
+    ├── range-client.ts             # Range API client
+    ├── noir-proof-service.ts       # Noir proof generation
+    └── privacy-utils.ts            # Key derivation, amount splitting
+```
+
+---
+
+## 🔐 Privacy Features
+
+| Feature | Implementation |
+|---------|---------------|
+| **Hidden Amounts** | ShadowWire Bulletproof range proofs |
+| **Compliance Screening** | Range API for sender + all recipients |
+| **ZK Attestations** | Noir circuits prove compliance without revealing data |
+| **Amount Splitting** | Optional withdrawal splitting to defeat correlation |
+| **Fresh Addresses** | Deterministic address derivation for each split |
+
+---
+
+## 🛣️ Roadmap
+
+**Post-Hackathon:**
+- Multi-token support (USDC payroll)
+- Recurring scheduled payments
+- Employee self-service portal
+- Compliance attestation export for auditors
+
+**Long-term:**
+- Fiat on/off ramp integration
+- Accounting software integration (QuickBooks, Xero)
+- Multi-sig employer wallets
+
+---
+
+## 🔑 Environment Variables
+
+```env
+RANGE_API_KEY=your_range_api_key
+HELIUS_API_KEY=your_helius_api_key
+MAX_RISK_THRESHOLD=5
+USE_MOCK_RANGE=true
+NEXT_PUBLIC_SOLANA_CLUSTER=devnet
+```
+
+---
+
+## 📜 License
+
+MIT
+
+---
+
+## 🙏 Acknowledgments
+
+- [Radr Labs](https://radr.fun) for ShadowWire
+- [Range](https://range.org) for compliance APIs
+- [Aztec](https://aztec.network) for Noir
+- [Solana Foundation](https://solana.org) for the hackathon
