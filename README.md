@@ -62,7 +62,7 @@ Click **"Try Demo Mode"** on the landing page to see the full flow without conne
 - Bulletproof range proof generation
 - **Employee withdrawals** (simple + stealth mode with mixing)
 
-**🎬 [Live Demo](https://shadowpay-demo.vercel.app)** ← Try it now!
+**🎬 [Live Demo](https://privacy-compliance-tool-arpitkhandelwals-projects.vercel.app)** ← Try it now!
 
 ---
 
