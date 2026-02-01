@@ -6,6 +6,8 @@ Hide salaries on-chain while proving regulatory compliance via ZK proofs.
 
 Built for the [Solana Privacy Hackathon 2026](https://solana.com/privacyhack).
 
+**🎬 [Try the Live Demo](https://privacy-compliance-tool-arpitkhandelwals-projects.vercel.app)** — Works without wallet, click "Demo Mode"
+
 ---
 
 ## 🎯 The Problem
@@ -15,7 +17,7 @@ Every month, millions of salary payments expose sensitive financial data on-chai
 - Competitors can track your burn rate
 - Salary data is permanently public
 
-**This isn't just inconvenient — it's a privacy violation.**
+**This isn't just inconvenient — it's a privacy violation that blocks enterprise adoption of on-chain payroll.**
 
 ## 💡 The Solution
 
@@ -27,6 +29,8 @@ ShadowPay enables private payroll that's also **compliant**:
 
 **Competitors hide balances. We hide balances AND prove you're not paying sanctioned entities.**
 
+> *The key insight: Privacy alone isn't enough for enterprise adoption. Compliance is the missing piece. ShadowPay delivers both.*
+
 ---
 
 ## 🏆 Bounty Alignment
@@ -35,6 +39,13 @@ ShadowPay enables private payroll that's also **compliant**:
 |---------|--------|-----------------|
 | **Radr (ShadowWire)** | $15,000 | Private transfers via Bulletproof ZK proofs |
 | **Range** | $1,500 | Pre-screening wallet compliance for sender & recipients |
+
+### Why Solana?
+
+- **Speed**: Sub-second finality means payroll executes instantly, not in 15-minute blocks
+- **Cost**: $0.00025/tx means paying 100 employees costs pennies, not dollars
+- **ShadowWire**: Radr's Bulletproof implementation is Solana-native with optimized on-chain verification
+- **Ecosystem**: Solana wallet adapter provides seamless UX for both employers and employees
 
 ---
 

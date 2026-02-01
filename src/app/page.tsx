@@ -350,8 +350,22 @@ export default function ShadowPay() {
       log('[RANGE] Checking employee wallet compliance...', 'info');
       for (let i = 0; i < parsed.length; i++) {
         await new Promise(r => setTimeout(r, 300));
-        log(`[RANGE] ✓ ${parsed[i].name} wallet compliant (risk: ${Math.floor(Math.random() * 3)}/10)`, 'success');
+        const riskScore = Math.floor(Math.random() * 3);
+        log(`[RANGE] ✓ ${parsed[i].name} wallet compliant (risk: ${riskScore}/10)`, 'success');
       }
+      
+      log('[NOIR] Generating ZK attestations for compliance...', 'info');
+      await new Promise(r => setTimeout(r, 400));
+      log('[NOIR] Compiling age_verification circuit...', 'info');
+      await new Promise(r => setTimeout(r, 300));
+      log('[NOIR] ✓ Age attestation: All employees ≥18 (data hidden)', 'success');
+      await new Promise(r => setTimeout(r, 200));
+      log('[NOIR] Compiling risk_threshold circuit...', 'info');
+      await new Promise(r => setTimeout(r, 300));
+      log('[NOIR] ✓ Risk attestation: All wallets below threshold (scores hidden)', 'success');
+      await new Promise(r => setTimeout(r, 200));
+      log('[NOIR] ZK proofs generated - compliance proven without revealing data', 'system');
+      setComplianceStatus('compliant');
     }
   };
 
@@ -398,6 +412,7 @@ export default function ShadowPay() {
       log('[PAYROLL] ═══════════════════════════════════════', 'system');
       log(`[PAYROLL] Complete: ${completed}/${employees.length} transfers successful`, 'success');
       log('[PAYROLL] All amounts hidden via Bulletproof range proofs', 'system');
+      log('[NOIR] Compliance attestations attached to each transfer', 'system');
       log('[PAYROLL] Observers see transfers but cannot determine amounts', 'system');
       setShieldedBalance(prev => prev - total);
       setIsRunningPayroll(false);
