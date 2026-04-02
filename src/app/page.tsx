@@ -837,17 +837,32 @@ export default function ShadowPay() {
         <div className="fixed top-1/4 -left-40 w-80 h-80 bg-emerald-500/20 rounded-full blur-[100px] animate-pulse" />
         <div className="fixed bottom-1/4 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
         
-        {/* Demo mode toggle */}
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-4 right-4 z-50 flex gap-2">
           <button
-            onClick={() => setDemoMode(!demoMode)}
+            onClick={() => {
+              setDemoMode(true);
+              log('[SYSTEM] Switched to DEMO MODE', 'system');
+            }}
             className={`px-3 py-1.5 rounded-lg border text-xs font-mono uppercase tracking-wider transition-all ${
               demoMode 
                 ? 'bg-purple-500/20 border-purple-500/50 text-purple-400' 
                 : 'bg-zinc-900 border-zinc-700 text-zinc-500 hover:border-zinc-600'
             }`}
           >
-            {demoMode ? '🎬 Demo Mode' : 'Demo Off'}
+            🎬 Demo Mode
+          </button>
+          <button
+            onClick={() => {
+              setDemoMode(false);
+              log('[SYSTEM] Switched to LIVE MAINNET', 'warning');
+            }}
+            className={`px-3 py-1.5 rounded-lg border text-xs font-mono uppercase tracking-wider transition-all ${
+              !demoMode 
+                ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400' 
+                : 'bg-zinc-900 border-zinc-700 text-zinc-500 hover:border-zinc-600'
+            }`}
+          >
+            🔒 Live Mainnet
           </button>
         </div>
         
@@ -907,9 +922,13 @@ export default function ShadowPay() {
             </div>
           ) : (
             <div className="flex flex-col items-center gap-6">
-              {demoMode && (
+              {demoMode ? (
                 <div className="px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono mb-2">
                   🎬 DEMO MODE — Simulated data for presentation
+                </div>
+              ) : (
+                <div className="px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-2">
+                  🔒 LIVE MAINNET — Real Solana transactions
                 </div>
               )}
               <div className="grid grid-cols-2 gap-4 w-full max-w-lg">

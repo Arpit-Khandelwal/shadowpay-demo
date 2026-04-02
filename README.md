@@ -1,4 +1,4 @@
-# ShadowPay 🔒
+# Dark Payroll 🔒
 
 **Compliant Private Payroll for Solana**
 
@@ -6,7 +6,7 @@ Hide salaries on-chain while proving regulatory compliance via ZK proofs.
 
 Built for the [Solana Privacy Hackathon 2026](https://solana.com/privacyhack).
 
-**🎬 [Try the Live Demo](https://privacy-compliance-tool-arpitkhandelwals-projects.vercel.app)** — Works without wallet, click "Demo Mode"
+**🎬 [Try the Live Demo](https://dark-payroll.vercel.app)** — Works without wallet, click "Demo Mode"
 
 ---
 
@@ -21,7 +21,7 @@ Every month, millions of salary payments expose sensitive financial data on-chai
 
 ## 💡 The Solution
 
-ShadowPay enables private payroll that's also **compliant**:
+Dark Payroll enables private payroll that's also **compliant**:
 
 1. **Hidden Amounts** — Salary amounts are hidden using Bulletproof range proofs via ShadowWire
 2. **Proven Compliance** — Every wallet is screened via Range API before payment
@@ -29,7 +29,7 @@ ShadowPay enables private payroll that's also **compliant**:
 
 **Competitors hide balances. We hide balances AND prove you're not paying sanctioned entities.**
 
-> *The key insight: Privacy alone isn't enough for enterprise adoption. Compliance is the missing piece. ShadowPay delivers both.*
+> *The key insight: Privacy alone isn't enough for enterprise adoption. Compliance is the missing piece. Dark Payroll delivers both.*
 
 ---
 

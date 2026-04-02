@@ -11,8 +11,11 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 
 export default function AppWalletProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const network = WalletAdapterNetwork.Mainnet;
+  const endpoint = useMemo(() => 
+    'https://mainnet.helius-rpc.com/?api-key=f235251b-a734-4fc1-8746-2aa4ca2581e7', 
+    [network]
+  );
 
   const wallets = useMemo(
     () => [
@@ -26,14 +29,12 @@ export default function AppWalletProvider({ children }: { children: React.ReactN
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect={false}>
-        <WalletModalProvider>{children}</WalletModalProvider>
+        <WalletModalProvider>
+          {mounted ? children : null}
+        </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
